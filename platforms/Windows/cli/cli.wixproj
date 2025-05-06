@@ -6,11 +6,23 @@
       INCLUDE_SWIFT_DOCC=$(INCLUDE_SWIFT_DOCC);
       SWIFT_FORMAT_BUILD=$(SWIFT_FORMAT_BUILD);
       SWIFT_DOCC_RENDER_ARTIFACT_ROOT_DIST=$(SWIFT_DOCC_RENDER_ARTIFACT_ROOT)\dist;
+      _USR_SHARE_PM=$(ImageRoot)\Toolchains\$(ProductVersion)+Asserts\usr\share\pm;
     </DefineConstants>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="WixToolset.Heat" Version="4.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <HarvestDirectory Include="$(ImageRoot)\Toolchains\$(ProductVersion)+Asserts\usr\share\pm">
+      <ComponentGroupName>PackageManagerResources</ComponentGroupName>
+      <DirectoryRefId>_usr_share_pm</DirectoryRefId>
+      <PreprocessorVariable>var._USR_SHARE_PM</PreprocessorVariable>
+      <SuppressCom>true</SuppressCom>
+      <SuppressRegistry>true</SuppressRegistry>
+      <SuppressRootDirectory>true</SuppressRootDirectory>
+    </HarvestDirectory>
   </ItemGroup>
 
   <ItemGroup Condition=" '$(INCLUDE_SWIFT_DOCC)' == 'True' ">

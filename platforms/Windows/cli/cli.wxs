@@ -344,6 +344,7 @@
       <ComponentGroupRef Id="llbuild" />
       <ComponentGroupRef Id="SwiftBuild" />
       <ComponentGroupRef Id="package_manager" />
+      <ComponentGroupRef Id="PackageManagerResources" />
 
       <ComponentGroupRef Id="DocC" />
       <?if $(INCLUDE_SWIFT_DOCC) = True?>
